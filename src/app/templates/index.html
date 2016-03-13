@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.2.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/classify.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#submit").click(submitPaper)
+            });
+        </script>
+    </head>
+    <body>
+        <header class="body">
+            <h1>MSC Klassen finden</h1>
+        </header>
+
+        <section class="body">
+            <form>
+                <label>Titel des Papers</label>
+                <input placeholder="Titel eingeben" id="title_text">
+                
+                <label>Abstract des Papers</label>
+                <textarea placeholder="Abstract eingeben" id="abstract_text"></textarea>
+            </form>
+            <div id="classes">
+                 <span id="submit">Klassen finden</span>
+            </div>
+
+        </section>
+
+        <footer class="body">
+        </footer>
+    </body>
+</html>
