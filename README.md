@@ -44,3 +44,31 @@ Each document must contain a document identifier, a list of MSC classifications 
     ]
     
     
+## Preparation of Classification
+To prepare the classification, execute the `prepare_classification.py` in the `src` folder. Deliver an output folder where the generated data shall be stored with the `-o` option followd by the document corpus.
+
+    python src/prepare_classification.py -o output-folder data/zb_math-corpus.json
+    
+## Configuration of the Classification Service
+Configure the input folder of the classification service in the `conf/application.conf`. This is the folder you created in the previous step.
+
+    {"input-dir": "output-folder"}
+    
+## Start the Classification Service
+
+To start the classification service, run the `start_service.py` script
+
+    python src/start_service.py
+    
+The startup might take some time. When the service is loaded, it will print
+
+    * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+    
+You can send documents to the route `POST /classify` in order to receive classifications for that document.
+
+The format must be
+
+    { "title": "the title",
+      "abstract": "the abstract" }
+      
+The Route `/` returns an example HTML frontend for classification
