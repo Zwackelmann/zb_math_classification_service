@@ -16,15 +16,31 @@ In order to run the scripts in the project, you need to install [scikit-learn](h
 
 ### The corpus format
 The first line of the corpus must be a header, describing the following documents followed by an arbitrary number of documents in json format. Each line must contain an enclosed json document.
+For the sake of readability the json documents in the following examples are displayed in multiple lines, but in the corpus they must be written in one line.
 
 #### Example header:
 The header consista of a name (has no effect to the classification) and a list of attributes that define the following documents
 
-    {"relation-name" : "some-name", "attributes" : [{"name" : "title", "type" : "string"}, {"name" : "abstract", "type" : "string"}]}
+    {
+      "relation-name" : "some-name", 
+      "attributes" : [
+        {"name" : "title", "type" : "string"}, 
+        {"name" : "abstract", "type" : "string"}
+      ]
+    }
     
 #### Example document:
 Each document must contain a document identifier, a list of MSC classifications and a list of values that match to the provided attributes in the header.
     
-    [["1234.56789",["37E30","37G20","37J10"]],["Astonishing Discoveries in Mathematics","Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."]]
+    [
+      [
+        "1234.56789",
+        ["37E30","37G20","37J10"]
+      ],
+      [
+        "Astonishing Discoveries in Mathematics",
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
+      ]
+    ]
     
     
